@@ -4,8 +4,12 @@ import wget
 import re
 
 regex = re.compile(".*?\\((.*?)\\)")
-
-URL = 'https://www.tumblr.com/tagged/memes'
+"""
+https://www.tumblr.com/tagged/hilarious-memes
+https://www.tumblr.com/tagged/funny-memes
+https://www.tumblr.com/tagged/funny-meme
+"""
+URL = 'https://www.tumblr.com/tagged/funny-meme'
 page = requests.get(URL)
 
 counter = 0
@@ -15,7 +19,7 @@ for link in soup.findAll('div', {'class': 'photo_stage_img'}):
     counter += 1
     result = re.findall(regex, link['style'])
     url = result[0]
-    wget.download(url, 'images/test' + str(counter) + '.jpg')
+    wget.download(url, 'images/meme' + str(counter) + '.jpg')
 
 
 print("\n\nCount: " + str(counter))
