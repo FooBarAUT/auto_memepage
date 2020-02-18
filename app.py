@@ -1,5 +1,6 @@
 from src import scrapeTumblr
 from src import fileIO
+import os
 
 urls = ['https://www.tumblr.com/tagged/funny-meme',
         'https://www.tumblr.com/tagged/funny-memes',
@@ -13,6 +14,7 @@ for url in urls:
         fileIO.download_image(image, "images/", "test-" + str(counter))
         counter += 1
 
-
-"""square = fileIO.make_square("images/meme3.jpg", (255, 255, 255))
-fileIO.save_image(square, "test/", "bla")"""
+imagelist = os.listdir('images')
+for filename in imagelist:
+    square = fileIO.make_square("images/" + filename, (255, 255, 255))
+    fileIO.save_image(square, "square/", filename[:-4])
