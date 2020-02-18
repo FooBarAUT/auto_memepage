@@ -1,6 +1,7 @@
-import re
-import requests
 from bs4 import BeautifulSoup
+import requests
+import wget
+import re
 
 regex = re.compile(".*?\\((.*?)\\)")
 
@@ -11,9 +12,10 @@ counter = 0
 
 soup = BeautifulSoup(page.content, 'html.parser')
 for link in soup.findAll('div', {'class': 'photo_stage_img'}):
-    result = re.findall(regex, link['style'])
     counter += 1
-    print(result[0])
+    result = re.findall(regex, link['style'])
+    url = result[0]
+    wget.download(url, 'images/test' + str(counter) + '.jpg')
 
 
-print("Count: " + str(counter))
+print("\n\nCount: " + str(counter))
