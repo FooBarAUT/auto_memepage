@@ -1,6 +1,7 @@
 from PIL import Image
 import random
 import wget
+import io
 
 
 def download_image(URL, path, filename):
@@ -54,3 +55,16 @@ def save_image(image, path, filename):
     Nothing, just saves the image
    """
     image.save(path + filename + '.png', quality=95)
+
+
+def get_hashtags():
+    """Reads the hashtags.txt
+
+    Parameters:
+    None
+
+    Returns:
+    List of hashtags
+   """
+    hashtags = [line.rstrip('\n') for line in open("hashtags.txt")]
+    return hashtags

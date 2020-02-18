@@ -13,6 +13,7 @@ pip install -r requirements.txt
 
 ## Usage
 
+You need to rename `hashtags.txt.example` to `hashtags.txt` and provide a list of hashtags (each on a new line).
 Just run `app.py` with python3:
 
 ```bash
