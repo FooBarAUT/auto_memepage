@@ -1,25 +1,16 @@
-from bs4 import BeautifulSoup
-import requests
-import wget
-import re
+from src import scrapeTumblr
+from src import fileIO
 
-regex = re.compile(".*?\\((.*?)\\)")
 """
 https://www.tumblr.com/tagged/hilarious-memes
 https://www.tumblr.com/tagged/funny-memes
 https://www.tumblr.com/tagged/funny-meme
 """
 URL = 'https://www.tumblr.com/tagged/funny-meme'
-page = requests.get(URL)
 
-counter = 0
+list = scrapeTumblr.get_stage_images_from_URL(URL)
 
-soup = BeautifulSoup(page.content, 'html.parser')
-for link in soup.findAll('div', {'class': 'photo_stage_img'}):
+counter = 1
+for image in list:
+    fileIO.download_image(image, "image/", "test" + str(counter))
     counter += 1
-    result = re.findall(regex, link['style'])
-    url = result[0]
-    wget.download(url, 'images/meme' + str(counter) + '.jpg')
-
-
-print("\n\nCount: " + str(counter))
