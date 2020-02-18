@@ -134,4 +134,5 @@ dmypy.json
 # project specific
 images/
 square/
-*txt
+*.txt
+*.config

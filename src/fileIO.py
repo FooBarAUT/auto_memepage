@@ -1,3 +1,4 @@
+from configparser import ConfigParser
 from PIL import Image
 import random
 import wget
@@ -68,3 +69,24 @@ def get_hashtags():
    """
     hashtags = [line.rstrip('\n') for line in open("hashtags.txt")]
     return hashtags
+
+
+def get_instagram_credentials():
+    """Reads credentials for Instagram login
+
+    Parameters:
+    None
+
+    Returns:
+    Dictionary with username and password
+   """
+    config_parser = ConfigParser()
+
+    if config_parser.read('src\\credentials.config'):
+        username = config_parser.get('authentication_Instagram', 'username')
+        password = config_parser.get('authentication_Instagram', 'password')
+        credentials = {'username': username, 'password': password}
+
+        return credentials
+    else:
+        pass
