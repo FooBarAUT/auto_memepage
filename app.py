@@ -10,5 +10,9 @@ for url in urls:
     list = scrapeTumblr.get_stage_images_from_URL(url)
 
     for image in list:
-        fileIO.download_image(image, "images/", "test" + str(counter))
+        fileIO.download_image(image, "images/", "test-" + str(counter))
         counter += 1
+
+
+"""square = fileIO.make_square("images/meme3.jpg", (255, 255, 255))
+fileIO.save_image(square, "test/", "bla")"""
