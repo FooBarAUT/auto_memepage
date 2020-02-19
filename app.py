@@ -1,5 +1,6 @@
 from src import scrapeTumblr
 from src import fileIO
+from src import instagram
 import os
 
 urls = ['https://www.tumblr.com/tagged/funny-meme',
@@ -18,3 +19,11 @@ imagelist = os.listdir('images')
 for filename in imagelist:
     square = fileIO.make_square("images/" + filename, (255, 255, 255))
     fileIO.save_image(square, "square/", filename[:-4])
+
+
+"""hashtags = fileIO.get_hashtags()
+randomHashtags = instagram.get_random_hashtags(hashtags, 15)
+posting = instagram.create_text(
+    "hahaha, funny meme", randomHashtags)
+
+print(posting)"""
