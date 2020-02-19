@@ -24,7 +24,7 @@ def create_text(text, hashtags):
 
     Parameters:
     text (string): text of your posting
-    hashtags (array): array of hashtags e.g. from get_random_hashtags()
+    hashtags (list): list of hashtags e.g. from get_random_hashtags()
 
     Returns:
     string that contains the posting

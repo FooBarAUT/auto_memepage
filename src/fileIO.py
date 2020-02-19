@@ -67,8 +67,39 @@ def get_hashtags():
     Returns:
     List of hashtags
    """
-    hashtags = [line.rstrip('\n') for line in open("hashtags.txt")]
+    hashtags = [line.rstrip('\n') for line in open('hashtags.txt')]
     return hashtags
+
+
+def remove_duplicates(hashtags):
+    """Removes duplicates from given hashtag list
+
+    Parameters:
+    hashtags (list): list of hashtags
+
+    Returns:
+    List of hashtags without duplicate entries
+   """
+    result = list(dict.fromkeys(hashtags))
+    return result
+
+
+def save_hashtags(hashtags, filename):
+    """Saves the hashtags to a given filename
+
+    Parameters:
+    hashtags (list): list of hashtags
+    filename (string): desired file to open and append to
+
+    Returns:
+    Nothing, just saves the hashtags into the file
+   """
+    file = open(filename, 'a+')
+
+    for entry in hashtags:
+        file.write(entry + '\n')
+
+    file.close()
 
 
 def get_instagram_credentials():

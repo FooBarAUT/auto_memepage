@@ -20,6 +20,9 @@ for filename in imagelist:
     square = fileIO.make_square("images/" + filename, (255, 255, 255))
     fileIO.save_image(square, "square/", filename[:-4])
 
+"""hashtags = scrapeTumblr.get_hashtags_from_URL(
+    "https://www.tumblr.com/tagged/hilarious-memes")
+fileIO.save_hashtags(fileIO.remove_duplicates(hashtags), "test.txt")"""
 
 """hashtags = fileIO.get_hashtags()
 randomHashtags = instagram.get_random_hashtags(hashtags, 15)
