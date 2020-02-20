@@ -2,7 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-# strips everything from the 'style'-tag in which the URL is hidden
+# strips everything from the 'style'-tag in which the URL is hidden:
+# style="background-image:url(https://66.media.tumblr.com/5e951bc325a1b9d53539b241cb542a43/tumblr_pqydiv0VX31rfcxgro1_500.png)"
 regex = re.compile('.*?\\((.*?)\\)')
 
 

@@ -22,11 +22,20 @@ for filename in imagelist:
 
 """hashtags = scrapeTumblr.get_hashtags_from_URL(
     "https://www.tumblr.com/tagged/hilarious-memes")
-fileIO.save_hashtags(fileIO.remove_duplicates(hashtags), "test.txt")"""
+fileIO.save_hashtags(fileIO.remove_duplicates(hashtags), "hashtags.txt")"""
 
 """hashtags = fileIO.get_hashtags()
 randomHashtags = instagram.get_random_hashtags(hashtags, 15)
-posting = instagram.create_text(
+text = instagram.create_text(
     "hahaha, funny meme", randomHashtags)
 
-print(posting)"""
+print(text)
+
+username = fileIO.get_instagram_credentials()['username']
+password = fileIO.get_instagram_credentials()['password']
+
+image = "square/" + os.listdir("square")[0]
+
+instagram.post(username, password, image, text)
+print("Posted!\nNow deleting the file ...\n")
+fileIO.delete_file(image)"""

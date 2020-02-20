@@ -1,3 +1,4 @@
+from instapy_cli import client
 import random
 
 
@@ -33,5 +34,21 @@ def create_text(text, hashtags):
     return output
 
 
-def post():
-    pass
+def post(username, password, image, text):
+    """Creates a posting on instagram
+
+    Parameters:
+    username (string): username
+    password (string): password
+    image (string): path to image e.g. 'images/test-1.png'
+    text (string): text for the posting e.g. from create_text()
+
+    Returns:
+    Nothing, just posts to instagram
+   """
+    try:
+        with client(username, password) as cli:
+            cli.upload(image, text)
+        return("Sucess!")
+    except Exception as e:
+        return e

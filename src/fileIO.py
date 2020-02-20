@@ -3,6 +3,7 @@ from PIL import Image
 import random
 import wget
 import io
+import os
 
 
 def download_image(URL, path, filename):
@@ -121,3 +122,19 @@ def get_instagram_credentials():
         return credentials
     else:
         pass
+
+
+def delete_file(path):
+    """Deletes file
+
+    Parameters:
+    path (string): path of file to be deleted
+
+    Returns:
+    Sucess or error-message
+   """
+    try:
+        os.remove(path)
+        return("Success!")
+    except Exception as e:
+        return(e)
