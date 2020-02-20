@@ -13,10 +13,13 @@ def get_random_hashtags(input, number):
     Array of random hashtags
    """
     output = []
+    count = 0
 
-    for i in range(1, number + 1):
+    while (count < number):
         hashtag = random.choice(input)
         output.append(hashtag)
+        count = count + 1
+
     return output
 
 
@@ -49,6 +52,6 @@ def post(username, password, image, text):
     try:
         with client(username, password) as cli:
             cli.upload(image, text)
-        return("Sucess!")
+        return()
     except Exception as e:
         return e
