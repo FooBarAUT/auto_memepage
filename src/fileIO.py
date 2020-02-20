@@ -21,7 +21,7 @@ def download_image(URL, path, filename):
 
 
 def make_square(imagePath, background_color):
-    """Downloads an image to the given path with given filename
+    """Takes image from given path and makes it square
 
     Parameters:
     imagePath (string): path to image
@@ -56,7 +56,7 @@ def save_image(image, path, filename):
     Returns:
     Nothing, just saves the image
    """
-    image.save(path + filename + '.png', quality=95)
+    image.save(path + filename + '.png', dpi=(300, 300), compress_level=0)
 
 
 def get_hashtags():
